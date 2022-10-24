@@ -1,4 +1,5 @@
 class Node:
+  #crating the node that store value and next parameter 
   def __init__(self, data):
     self.data = data
     self.next = None
@@ -20,26 +21,6 @@ class LinkedList:
         temp = temp.next
       temp.next = newNode
 
-  #Delete an element at the given position
-  def pop_at(self, position):     
-    if(position < 1):
-      print("\nposition should be >= 1.")
-    elif (position == 1 and self.head != None):
-      nodeToDelete = self.head
-      self.head = self.head.next
-      nodeToDelete = None
-    else:    
-      temp = self.head
-      for i in range(1, position-1):
-        if(temp != None):
-          temp = temp.next   
-      if(temp != None and temp.next != None):
-        nodeToDelete = temp.next
-        temp.next = temp.next.next
-        nodeToDelete = None 
-      else:
-        print("\nThe node is already null.") 
-
   #display the content of the list
   def PrintList(self):
     temp = self.head
@@ -51,4 +32,20 @@ class LinkedList:
       print()
     else:
       print("The list is empty.")
-    
+
+ ####
+           
+
+  #Delete an element at the given position
+def pop_at( position):     
+        """
+        this function for deleting a node 
+        """
+        position.data=position.next.data
+        position.next=position.next.next
+             
+
+
+
+if __name__=="__main__":
+    pass
