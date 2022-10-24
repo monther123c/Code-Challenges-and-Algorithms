@@ -1,5 +1,5 @@
 import pytest
-from challenge01 import Node,LinkedList
+from challenge01 import Node,LinkedList,pop_at
  # test the code                 
 MyList = LinkedList()
 
@@ -15,9 +15,10 @@ MyList.PrintList()
 
 #delete
 
-MyList.pop_at(2)
-MyList.PrintList()
+def test_delete():
+    pop_at(1)
+    expected=["10","30" ,"40","10", "20", "30"]
+    actual=MyList.transfer_to_list()
+    assert expected==actual
 
-MyList.pop_at(1)
-MyList.PrintList() 
 
