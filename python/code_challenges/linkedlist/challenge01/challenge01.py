@@ -1,48 +1,71 @@
 class Node:
-  #crating the node that store value and next parameter 
-  def __init__(self, data):
-    self.data = data
-    self.next = None
+    """This class creates the node """
+    def __init__(self,value):
+        self.value=value
+        self.next= None
 
-#class Linked List
-class LinkedList:
-  def __init__(self):
-    self.head = None
+class linkedlist:
+    """this class append and delete a node"""
+    def __init__(self):
+        self.head=None
 
-  #Add new element at the end of the list
-  def push_back(self, newElement):
-    newNode = Node(newElement)
-    if(self.head == None):
-      self.head = newNode
-      return
-    else:
-      temp = self.head
-      while(temp.next != None):
-        temp = temp.next
-      temp.next = newNode
+    def append(self,node):
+        """this is responseble to append a node"""
+        if self.head==None:
+            self.head=node
+        else:
+            current=self.head
+            while current.next is not None:
+                current = current.next
+            current.next = node         
+    
+    def printAll(self):
+        """this is for printing"""
+        
+        current = self.head
+        while current is not None:
+            print(current.value)
+            current = current.next
 
-  #display the content of the list
-  def PrintList(self):
-    temp = self.head
-    if(temp != None):
-      print("The list contains:", end=" ")
-      while (temp != None):
-        print(temp.data, end=" ")
-        temp = temp.next
-      print()
-    else:
-      print("The list is empty.")
+    
+    def test_fun(self):
+        """this is just for testing"""
+        lst=[]
 
- ####
-           
+        current = self.head
+        while current is not None:
+            lst.append(current.value)
+            current = current.next
+        return lst
 
-  #Delete an element at the given position
-def pop_at( position):     
-        """
-        this function for deleting a node 
-        """
-        position.data=position.next.data
-        position.next=position.next.next
+def delete(node):
+    """this is responseble to delete a node"""
+
+    node.value=node.next.value
+    node.next=node.next.next
+
+
+
+
+linkedList1 = linkedlist()
+node1 = Node("A")
+linkedList1.append(node1)
+
+node2 = Node("B")
+linkedList1.append(node2)
+
+node3 = Node("C")
+linkedList1.append(node3)
+
+node4 = Node("D")
+linkedList1.append(node4)
+
+node5 = Node("E")
+linkedList1.append(node5)
+
+delete(node3)
+
+linkedList1.printAll() 
              
 
 
