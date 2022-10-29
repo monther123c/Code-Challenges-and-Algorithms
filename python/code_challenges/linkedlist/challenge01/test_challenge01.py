@@ -1,43 +1,29 @@
-import pytest 
-from challenge01 import Node , linkedlist, delete
-
-linkedList1 = linkedlist()
-node1 = Node("A")
-linkedList1.append(node1)
-
-node2 = Node("B")
-linkedList1.append(node2)
-
-node3 = Node("C")
-linkedList1.append(node3)
-
-node4 = Node("D")
-linkedList1.append(node4)
-
-node5 = Node("E")
-linkedList1.append(node5)
+import pytest
+from challenge01 import *
 
 
-def test_append():
+def test_toArray():
+    linkedList = Linkedlist()
+    linkedList.append(4)
+    linkedList.append(5)
+    linkedList.append(1)
+    linkedList.append(9)
+
+    actual = linkedList.toArray()
+    expected = [4,5,1,9]
+    assert actual == expected
+
+def test_delete():
+    linkedList = Linkedlist()
+    linkedList.append(4)
+    linkedList.append(5)
+    linkedList.append(1)
+    linkedList.append(9)
+
+    wantedNode = linkedList.getNode(1)
+    linkedList.removeByNode(wantedNode)
     
-    actual=linkedList1.test_fun()
-    expected=["A","B","C","D","E"]
-    assert actual==expected
 
-def test_delete1():
-    
-    delete(node1)
-
-    actual=linkedList1.test_fun()
-    expected=["B","C","D","E"]
-    assert actual==expected
-
-def test_delete2():
-    
-    delete(node3)
-
-    actual=linkedList1.test_fun()
-    expected=["B","D","E"]
-    assert actual==expected
-
-
+    actual = linkedList.toArray()
+    expected = [4,5,9]
+    assert actual == expected
