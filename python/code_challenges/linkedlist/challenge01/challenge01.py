@@ -1,74 +1,55 @@
 class Node:
-    """This class creates the node """
-    def __init__(self,value):
-        self.value=value
-        self.next= None
+  def __init__(self,value):
+    #creat a node 
+    self.value=value
+    self.next=None
+    
 
-class linkedlist:
-    """this class append and delete a node"""
+class Linkedlist:
+    # class to modifay th node and delete
+     
     def __init__(self):
         self.head=None
+        self.links = []
+        self.length = 0
 
-    def append(self,node):
-        """this is responseble to append a node"""
-        if self.head==None:
-            self.head=node
-        else:
-            current=self.head
-            while current.next is not None:
-                current = current.next
-            current.next = node         
-    
-    def printAll(self):
-        """this is for printing"""
+    def append(self,value):
+        #function to add vlaues to the list 
+        new_node=Node(value)
+        if self.length ==0:
+            self.head=new_node
+            self.length+=1
+            self.links.append(value)
+
+        else: 
+            currentNode= self.head
+            
+            while currentNode.next != None:
+                currentNode = currentNode.next 
+
+            currentNode.next = new_node
+            self.links.append(value)
+            self.length+=1
+            
+    def toArray(self):
+        result = []
+        currentNode = self.head
+        while currentNode != None:
+                result.append(currentNode.value)
+                currentNode = currentNode.next # None
+        return result
         
-        current = self.head
-        while current is not None:
-            print(current.value)
-            current = current.next
-
-    
-    def test_fun(self):
-        """this is just for testing"""
-        lst=[]
-
-        current = self.head
-        while current is not None:
-            lst.append(current.value)
-            current = current.next
-        return lst
-
-def delete(node):
-    """this is responseble to delete a node"""
-
-    node.value=node.next.value
-    node.next=node.next.next
-
-
-
-
-linkedList1 = linkedlist()
-node1 = Node("A")
-linkedList1.append(node1)
-
-node2 = Node("B")
-linkedList1.append(node2)
-
-node3 = Node("C")
-linkedList1.append(node3)
-
-node4 = Node("D")
-linkedList1.append(node4)
-
-node5 = Node("E")
-linkedList1.append(node5)
-
-delete(node3)
-
-linkedList1.printAll() 
-             
-
-
-
-if __name__=="__main__":
-    pass
+    def removeByNode(self, node : Node):
+         
+        next_node = node.next
+         
+        node.value  = next_node.value
+        node.next = next_node.next
+        
+    def getNode(self,val):
+        currentNode = self.head
+        wantedNode = None
+        while (currentNode.value != val):
+            currentNode = currentNode.next
+        wantedNode = currentNode
+        return wantedNode
