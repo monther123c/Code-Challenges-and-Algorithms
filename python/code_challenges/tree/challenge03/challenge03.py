@@ -43,14 +43,17 @@ class Tree:
                     
                 return : all the roots values as a list 
                 '''
-                
+                '''
+    Breadth First Search (BFS), It take tree as input 
+    and it returns the value of each node in every level for left to right
+    '''
             
                 if not root:
 
                     return ['null']               
                     
-                
-                
+        
+                    
                 if root :
 
                     if root.left:
